@@ -39,10 +39,10 @@ var employees = [{
 // Code here
 let employeeUpdater = () => {
   for (i = 0; i < employees.length; i++) {
-    if (employees[i].firstName === 'Theo') {
+    if (employees[i]["firstName"] === 'Theo') {
       employees.splice(i, 1)
-    } else if (employees[i].firstName === 'Lorie') {
-      employees[i].department = "HR"
+    } else if (employees[i]["firstName"] === 'Lorie') {
+      employees[i]["department"] = "HR"
     }
   }
   return employees
@@ -133,11 +133,7 @@ var myCar = {
 
 // Code here
 
-let recordCleaner = obj => {
-  for (let key in obj){
-    if(myCar.accidents[key])
-  }
-}
+
 
 
 
