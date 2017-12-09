@@ -37,10 +37,16 @@ var employees = [{
 //  3. Return the updated employee array.
 
 // Code here
-
-
-
-
+let employeeUpdater = () => {
+  for (i = 0; i < employees.length; i++) {
+    if (employees[i].firstName === 'Theo') {
+      employees.splice(i, 1)
+    } else if (employees[i].firstName === 'Lorie') {
+      employees[i].department = "HR"
+    }
+  }
+  return employees
+}
 
 
 
@@ -55,6 +61,9 @@ var employees = [{
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 // Code here
+let removeDuplicates = arr => {
+ return arr = Array.from(new Set(arr));
+}
 
 
 
@@ -84,8 +93,8 @@ var cat = {
 
 // Code here
 
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;;
 
 
 
@@ -124,7 +133,11 @@ var myCar = {
 
 // Code here
 
-
+let recordCleaner = obj => {
+  for (let key in obj){
+    if(myCar.accidents[key])
+  }
+}
 
 
 
