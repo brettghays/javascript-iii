@@ -53,11 +53,8 @@ call your class Manager
 
 */
 class Manager extends Employee{
-    constructor(first_name, last_name, email, age, reports) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.age = age;
+    constructor(first_name, last_name, email, age) {
+        super(first_name,last_name,email,age);
         this.reports = []
     }
 
@@ -66,7 +63,7 @@ class Manager extends Employee{
     }
 
     fire (index) {
-        this.reports.filter(x)
+        this.reports.splice(index,1);
         //look at github js arrays last extra problem
     }
 }
@@ -94,6 +91,44 @@ Everytime they fire an employee they get $100 added to their bonus.
 
 call your class ProgressiveManager
 */
+class ProgressiveManager extends Manager {
+    constructor(first_name, last_name, email, age){
+        super(first_name,last_name,email,age);
+        this.title="Not a manager";
+        this.bonus = 0;
+    }
+
+    hire(employee){
+       this.reports.push(employee);
+       var employeeNumber = this.reports.length
+       switch(true) {
+           case (employeeNumber===0):
+           this.title = 'Not a Manager';
+           break;
+           case(employeeNumber<4):
+           this.title = 'Barely Manager';
+           break;
+           case(employeeNumber<11):
+           this.title = 'Mostly Manager';
+           break;
+           case(employeeNumber<51):
+           this.title='Manager';
+           break;
+           case (employeeNumber<101):
+           this.title='Manager Plus';
+           break;
+           default:
+           this.title='Bestest Manager';
+           break;
+       }        
+       
+    }
+
+    fire(employee){
+        this.bonus += 100
+    }
+
+}
 
 
 
@@ -129,7 +164,7 @@ class Machine {
     }
     makeWidgets(num){
         this.widgets_made_count += num;
-        this.wear_and_tear_count += Math.floor(number/50);
+        this.wear_and_tear_count += Math.floor(num/50);
     }
     fixMachine(){
         this.needs_reboot=true;
